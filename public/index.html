@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Anton|Nanum+Pen+Script" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <div>
+      <h1 class="list-title">드라마 목록</h1>
+      <ul class="list">
+      </ul>
+    </div>
+    <div class="fab">
+      <button class="fab-button"><span>+</span></button>
+    </div>
+    <div id="myModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+        <form>
+          <h1>드라마 등록</h1>
+          <label for="title">
+            제목:
+            <input type="text" id="title" name="title" placeholder="ex. 내 이름은 김삼순">
+          </label>
+          <label for="rating">
+            별점:
+            <input type="text" id="rating" name="rating" placeholder="ex. 4.7">
+          </label>
+          <button>등록</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    
+
+    const convertRatingToStar = rating => {
+      const MAX = 5
+      let blackStar = ''
+      let whiteStar = ''
+      for (let i = 0; i < rating; i++) {
+        blackStar += '★'
+      }
+      for (let i = 0; i < MAX - rating; i++) {
+        whiteStar += '☆'
+      }
+      return `${blackStar}${whiteStar}`
+    }
+    const generateDramaItem = data => {
+      const dramaItem = document.createElement('li')
+      const itemHTML = `
+        <div class="title">
+          ${data.title}
+        </div>
+        <div class="rating">
+          별점
+          <span class>${convertRatingToStar(data.rating)}</span>
+        </div>
+      `
+      dramaItem.innerHTML = itemHTML
+      return dramaItem
+    }
+    const dramaList = [
+      { 'title': '이번생은 처음이라', 'rating': 4 },
+      { 'title': '브레인', 'rating': 5 },
+      { 'title': '그들이 사는 세상', 'rating': 3 },
+      { 'title': '미생', 'rating': 5 },
+      { 'title': '도봉순', 'rating': 1 },
+    ]
+    document.addEventListener('DOMContentLoaded', () => {
+      const $fabButton = document.querySelector('.fab-button')
+      const $modal = document.querySelector('#myModal')
+      const $closeButton = $modal.querySelector('.modal-content .close')
+
+      $fabButton.addEventListener('click', event => {
+        $modal.style.display = 'block'
+      })
+
+      $closeButton.addEventListener('click', event => {
+        $modal.style.display = 'none'
+      })
+      console.log('content loaded')
+      const $list = document.querySelector('.list')
+      dramaList.forEach(drama => {
+        $list.appendChild(generateDramaItem(drama))
+      })
+    })
+  </script>
+</body>
+</html>

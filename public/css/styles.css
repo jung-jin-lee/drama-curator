@@ -1,0 +1,93 @@
+body {
+  background: #eee;
+}
+
+.container {
+  width: 980px;
+  margin: 0 auto;
+}
+
+.list-title {
+  border-bottom: 2px solid #000;
+  margin-left: 40px;
+  width: 330px;
+}
+
+.list {
+  width: 990px;
+  list-style-type: none;
+}
+
+.list li {
+  width: 330px;
+  height: 120px;
+  background: #fff;
+  border-radius: 3px;
+}
+
+.title {
+  font-size: 3em;
+  padding: 10px;
+  font-family: 'Anton', sans-serif;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.rating {
+  font-size: 2em;
+  padding-left: 10px;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+.card {
+  background: #fff;
+}
+
+.fab {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.fab-button {
+  padding: 10px 15px;
+  border: 0;
+  border-radius: 25px;
+  background: red;
+  color: #fff;
+  font-weight: 700;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
